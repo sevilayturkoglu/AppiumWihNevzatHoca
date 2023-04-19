@@ -20,10 +20,11 @@
         <artifactId>java-client</artifactId>
         <version>7.6.0</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-remote-driver -->
+
+    <!-- Selenium WebDriver -->
     <dependency>
         <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-remote-driver</artifactId>
+        <artifactId>selenium-java</artifactId>
         <version>3.141.59</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.testng/testng -->
