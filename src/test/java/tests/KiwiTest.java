@@ -63,11 +63,19 @@ KiwiPage page =new KiwiPage();
         page.scrollDown(580,1660,319);
         TouchAction action=new TouchAction<>(Driver.getAndroidDriver());
         action.tap(PointOption.point(116,1410)).perform();
-page.Setdate.click();
+          page.Setdate.click();
 // search butonuna tiklanir
         page.Search.click();
 // en  ucuz ve aktarmasiz filtrelemeleri yapilir
+        page.Best.click();
+        page.Cheapest.click();
+        page.Stops.click();
+        page.Nonstop.click();
 // gelen bilet fiyati kaydedilir ve kullanicin telefonuna sms olarak gonderilir
+        Thread.sleep(1000);
 
+        //System.out.println(biletFiyatText);
+        Thread.sleep(1000);
+        page.fiyatBtn.click();
     }
 }

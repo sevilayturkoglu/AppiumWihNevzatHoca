@@ -49,8 +49,24 @@ public class KiwiPage {
 
     @FindBy(xpath = "//*[@text='Search']")
     public WebElement Search;
-    @FindBy(xpath = "//*[@text='Search']")
-    public WebElement Search1;
+
+    @FindBy(xpath = "//*[@text='Best']")
+    public WebElement Best;
+
+    @FindBy(xpath = "//*[@text='Cheapest']")
+    public WebElement Cheapest;
+
+    @FindBy(xpath = "//*[@text='Stops']")
+    public WebElement Stops;
+
+    @FindBy(xpath = "//*[@text='Nonstop']")
+    public WebElement Nonstop;
+
+    @FindBy(xpath = "//*[@text='Istanbul Airport (IST)']")
+    public WebElement fiyatBtn;
+
+    @FindBy(xpath = "//*[@text='Nonstop']")
+    public WebElement Nonstop1;
 
 
     TouchAction action=new TouchAction<>(Driver.getAndroidDriver());
@@ -68,6 +84,5 @@ public void scrollDown(int xCoordinate,int yCoordinate,int sonYCoordinate){
             .waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000)))
             .moveTo(PointOption.point(xCoordinate,sonYCoordinate)).release().perform();
 }
-
 
 }
