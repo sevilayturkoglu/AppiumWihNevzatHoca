@@ -1,5 +1,6 @@
 package Pages;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +12,8 @@ import java.time.Duration;
 
 public class KiwiPage {
     public KiwiPage(){
-        PageFactory.initElements((WebDriver) Driver.getAndroidDriver(),this);
+        //PageFactory.initElements ((WebDriver)Driver.getAndroidDriver(),this);//bunu hoca yapti ama bunsuz da calisiyor
+        PageFactory.initElements (Driver.getAndroidDriver(),this);
     }
 
     @FindBy(xpath = "//*[@text='Continue as a guest']")
@@ -33,10 +35,16 @@ public class KiwiPage {
     public WebElement London;
 
     @FindBy(xpath = "//*[@text='Choose']")
-    public WebElement choose;
+    private WebElement choose;
+    public void chooseClick(){
+        choose.click();
+    }
 
     @FindBy(xpath = "//*[@text='Anywhere']")
-    public WebElement toAnywhere;
+    private WebElement toAnywhere;
+    public WebElement toAnywhere(){
+        return toAnywhere;
+    }
 
     @FindBy(xpath = "//*[@text='IST, Istanbul Airport']")
     public WebElement istanbul;
@@ -62,11 +70,10 @@ public class KiwiPage {
     @FindBy(xpath = "//*[@text='Nonstop']")
     public WebElement Nonstop;
 
-    @FindBy(xpath = "//*[@text='Istanbul Airport (IST)']")
-    public WebElement fiyatBtn;
+    @FindBy(xpath = "(//*[@class='android.widget.TextView'])[12]")
+    public WebElement ticketPrice;
 
-    @FindBy(xpath = "//*[@text='Nonstop']")
-    public WebElement Nonstop1;
+
 
 
     TouchAction action=new TouchAction<>(Driver.getAndroidDriver());

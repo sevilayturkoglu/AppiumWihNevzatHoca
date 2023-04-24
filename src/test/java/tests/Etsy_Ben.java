@@ -31,12 +31,13 @@ public class Etsy_Ben {
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, automation);
      // capabilities.setCapability(MobileCapabilityType.APP, "C:\\Users\\sevil\\IdeaProjects\\Appium_T-108\\Apps\\Etsy_ Custom & Creative Goods_6.26.1_Apkpure.apk");
        capabilities.setCapability("appPackage", "com.etsy.android");//hangi uygulamada calisacagimi bildirdim ,apkinfo uzerinden bundle aldik
-        capabilities.setCapability("appActivity", "com.etsy.android.ui.homescreen.HomescreenTabsActivity");//Activities uzerinden acip urada uygulamada hangi sayfayi gormek veya baslatmak istedigimizi yazariz,ya main activity veya homePage actyviti den alip kopyalariz,sondaki - yi sildik
+       capabilities.setCapability("appActivity", "com.etsy.android.ui.homescreen.HomescreenTabsActivity");//Activities uzerinden acip urada uygulamada hangi sayfayi gormek veya baslatmak istedigimizi yazariz,ya main activity veya homePage actyviti den alip kopyalariz,sondaki - yi sildik
         capabilities.setCapability(MobileCapabilityType.NO_RESET, false);//Bunu yazarak uygulama icin girdigimiz sifre mail gibi veriler store edilir ,her giriste yeniden istenmez,false yazarsak kayit olmaz,true yazarsak sifreleri saklar sifirlamaz,genelde false kullanilir
         driver = new AndroidDriver<AndroidElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-    }@Test
+    }
+    @Test
     public void etsyTest(){
-     // driver.activateApp("com.etsy.android");//beforeTest oldugu cin buna gerek yok
+   driver.activateApp("com.etsy.android");//beforeTest oldugu cin buna gerek yok
     }
 }

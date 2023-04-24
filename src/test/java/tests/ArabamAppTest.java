@@ -13,7 +13,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
@@ -42,9 +41,9 @@ public class ArabamAppTest {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
     // Arabam kac para bolumune tiklayalim
-// Aracimin fiyatini merak ediyorum bolumunetiklayalim
-// Wolkswagen markasini secelim
-// yil secimi yapalim
+    // Aracimin fiyatini merak ediyorum bolumunetiklayalim
+   // Wolkswagen markasini secelim
+   // yil secimi yapalim
 // model secimi yapalim
 // govde tipini secelim
 // yakit tipini secelim
@@ -61,18 +60,18 @@ public class ArabamAppTest {
     public void arabamTest() throws InterruptedException {
 
         // Arabam kac para bolumune tiklayalim
-     driver.findElementByXPath("//*[@text='Arabam kaç para?']").click();
+        driver.findElementByXPath("//*[@text='Arabam kaç para?']").click();
 
         // Aracimin fiyatini merak ediyorum bolumunetiklayalim
-        AndroidElement fiyatMerak=driver.findElement(By.xpath("//*[@text='Aracımın fiyatını merak ediyorum']"));
+        AndroidElement fiyatMerak = driver.findElement(By.xpath("//*[@text='Aracımın fiyatını merak ediyorum']"));
         fiyatMerak.click();
 
         // Wolkswagen markasini secelim  burada ekran kaydirma islemi yapacagiz
-Thread.sleep(2000);
-        TouchAction action=new TouchAction<>(driver);
-        action.press(PointOption.point(530,2250)).//ekrandaki alt koordinatlari belirledik
+        Thread.sleep(2000);
+        TouchAction action = new TouchAction<>(driver);
+        action.press(PointOption.point(530, 2250)).//ekrandaki alt koordinatlari belirledik
                 waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000))).
-                moveTo(PointOption.point(530,0)).release().perform();//Ekrandaki ust kaydirma noktasi  koordinatlari belirledik release parmagini kaldir dedik
+                moveTo(PointOption.point(530, 0)).release().perform();//Ekrandaki ust kaydirma noktasi  koordinatlari belirledik release parmagini kaldir dedik
       /*  Eger ki bizler daha onceden kaydirma islemi gerceklestirmissek tam tersi haraketini gerceklestirmek icin yazdigimiz
         koordinat degerlerini tam tersi olacak sekilde yazmak o islemin zittini gerceklestirir.*/
         Thread.sleep(1000);
@@ -80,9 +79,7 @@ Thread.sleep(2000);
      /*
          action.press(PointOption.point(537,381)).
                  waitAction(WaitOptions.waitOptions(Duration.ofMillis(500))).
-                 moveTo(PointOption.point(543,1732)).release().perform();
-
-      */
+                 moveTo(PointOption.point(543,1732)).release().perform(); */
 // yil secimi yapalim
         driver.findElement(By.xpath("//*[@text='2011']")).click();
 // model secimi yapalim
@@ -95,21 +92,21 @@ Thread.sleep(2000);
         driver.findElement(By.xpath("//*[@text='Yarı Otomatik']")).click();
 // Versiyon secimi yapalim
         Thread.sleep(1000);
-        action.press(PointOption.point(490,1747)).release().perform(); //burada kendi koordinatini bul yaz
-// aracin km bilgilerini girelim
+        action.press(PointOption.point(490, 1747)).release().perform(); //burada kendi koordinatini bul yaz
+  // aracin km bilgilerini girelim
         //driver.getKeyboard().pressKey("190000");boyle yapilabilir
-        if(driver.isKeyboardShown()){
+        if (driver.isKeyboardShown()) {
             driver.getKeyboard().pressKey("190000");
-        }else{
-            driver.findElementById("com.dogan.arabam:id/et_km").sendKeys("190000");
+        } else {
+            driver.findElementById("com.dogan.arabam:id/et_km").sendKeys("150000");
         }
         driver.findElementById("com.dogan.arabam:id/btn_price_prediction_submit").click();
         // aracin rengini secelim
         driver.findElementByXPath("//*[@text='Gri (metalik)']").click();
-        // opsiyel donanim (varsa) seecelim
+        // opsiyel donanim (varsa) secelim
         driver.findElementById("com.dogan.arabam:id/btnNext").click();
         // degisen bilgisi ekleyerek tramer kaydi belirtelim
-        AndroidElement kaput=driver.findElementById("com.dogan.arabam:id/iv_B01001");
+        AndroidElement kaput = driver.findElementById("com.dogan.arabam:id/iv_B01001");
         kaput.click();
         Thread.sleep(1000);
         driver.findElementByXPath("(//*[@text='Boyalı'])[2]").click();
@@ -119,13 +116,12 @@ Thread.sleep(2000);
         driver.findElementById("com.dogan.arabam:id/rbHasNoTramerEntry").click();
         driver.findElementById("com.dogan.arabam:id/btnNext").click();
         // aracimizin fiyatinin 500.000 tl den fazla oldugunu test edelim
-        String avaragePrice= driver.findElementById("com.dogan.arabam:id/tvAveragePrice").getText();
+        String avaragePrice = driver.findElementById("com.dogan.arabam:id/tvAveragePrice").getText();
         //588.500 TL
-        String lastPrice=avaragePrice.replaceAll("\\D","");
-        Assert.assertTrue(Integer.parseInt(lastPrice)>500000);
-
+        String lastPrice = avaragePrice.replaceAll("\\D", "");
+        Assert.assertTrue(Integer.parseInt(lastPrice) > 500000);
         // uygulamayi kapatalim
         driver.closeApp();
     }
-    }
+}
 

@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.assertEquals;
 
 public class DenemeTesti {
-    AndroidDriver<AndroidElement> driver;//Bu driver ile Android islemciler test edilir,ve AndroidDriver<MobileElement> driver; seklinde de yazilabilir.
+    AndroidDriver <AndroidElement> driver;//Bu driver ile Android islemciler test edilir,ve AndroidDriver<MobileElement> driver; seklinde de yazilabilir.
     //AppiumDriver<MobileElement> appiumDriver;//Bu driver ile ios (apple) cihazlar ve android cihazlar da test edilebilir
     final String cihazAdi = "PIXEL2";
     final String platformIsmi = "Android";
@@ -40,7 +40,7 @@ public class DenemeTesti {
 
     @Test
     public void carpmaTest() throws InterruptedException {
-        driver.activateApp("com.google.android.calculator");//apk infodan app imizi acip bundle mizi aldik,boylece bu testten appimize ulasabiliriz,artik before de ki 31. satira gerek yok
+        driver.activateApp("com.google.android.calculator");//apk infodan app imizi acip bundle mizi aldik,boylece bu testten appimize ulasabiliriz,artik before de ki 35. satira gerek yok
         driver.findElementByAccessibilityId("8").click();
         driver.findElementByAccessibilityId("0").click();
         driver.findElementByAccessibilityId("multiply").click();
@@ -57,7 +57,7 @@ public class DenemeTesti {
         getDigit(5).click();
         getIslem("equals").click();
         Thread.sleep(1000);
-        AndroidElement resultFinal = driver.findElementById("com.google.android.calculator:id/result_final");
+        MobileElement resultFinal = driver.findElementById("com.google.android.calculator:id/result_final");
         String actualResult = resultFinal.getText();
         System.out.println(actualResult);
         assertEquals(actualResult, "15");
@@ -96,7 +96,7 @@ public class DenemeTesti {
 
 
     }
-    public MobileElement getDigit(int digit){
+    public AndroidElement getDigit(int digit){//Buraya AndroidElement veya MobileElement yazilabilir
         return driver.findElementByAccessibilityId(""+digit);
     }
 

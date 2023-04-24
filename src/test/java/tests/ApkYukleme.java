@@ -17,7 +17,8 @@ public class ApkYukleme {
     //bu sayfayi ilk basta apkInfo/ApkBilgisi yuklemek icin kullandik,sonrada her yukleyecegimiz appi cihazimiza yuklemek icin kullanacagiz
     //sadece app in absolute pathini capabilities.setCapability(MobileCapabilityType.APP, "absolutePath"  yapistir
     AndroidDriver<AndroidElement> driver;//Bu driver ile Android islemciler test edilir,ve AndroidDriver<MobileElement> driver; seklinde de yazilabilir.
-    AppiumDriver<MobileElement> appiumDriver;//Bu driver ile iosapple() cihazlar ve android cihazlar da test edilebilir
+    AppiumDriver<MobileElement> appiumDriver;//Bu driver ile ios apple() cihazlar ve android cihazlar da test edilebilir
+
     final String cihazAdi="PIXEL2";
     final String platformIsmi="Android";
     final String version="10.0";
@@ -31,7 +32,7 @@ public class ApkYukleme {
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME,platformIsmi);
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,version);
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME,automation);
-        capabilities.setCapability(MobileCapabilityType.APP,"C:\\Users\\sevil\\IdeaProjects\\Appium_T-108\\Apps\\Etsy_ Custom & Creative Goods_6.26.1_Apkpure.apk");
+        capabilities.setCapability(MobileCapabilityType.APP,"C:\\Users\\sevil\\IdeaProjects\\Appium_T-108\\Apps\\all-currency-converter-3-9-0 (1).apk");
         driver=new AndroidDriver<AndroidElement>(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
