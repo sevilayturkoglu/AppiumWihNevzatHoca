@@ -100,6 +100,7 @@ public class DenemeTesti {
         return driver.findElementByAccessibilityId(""+digit);
     }
 
+
     public MobileElement getIslem(String islem){
         return driver.findElementByAccessibilityId(""+islem);
     }
